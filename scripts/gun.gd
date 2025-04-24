@@ -1,7 +1,7 @@
 extends Node2D
 
 var initial_position: float  
-const BULLET = preload("res://bullet.tscn")
+const Bullet = preload("res://scripts/bullet.gd")
 @onready var muzzle: Marker2D = $Marker2D
 
 func _ready() -> void:
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 		
 		
 func shoot_bullet() -> void:
-	var bullet_instance = BULLET.instantiate()
+	var bullet_instance = Bullet.instantiate()
 	get_tree().root.add_child(bullet_instance)
 	bullet_instance.global_position = muzzle.global_position
 	bullet_instance.rotation = rotation  

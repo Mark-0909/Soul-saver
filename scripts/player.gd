@@ -36,6 +36,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if Input.is_action_pressed("transform"):
+		velocity = Vector2.ZERO
+		$AnimatedSprite2D.play("transform")
+		await get_tree().create_timer(1).timeout
+		
 
 	move_and_slide()
 
